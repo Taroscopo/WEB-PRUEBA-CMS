@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo - Tarotista y Terapeuta Holística</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=32&h=32&q=80">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="top-bar" data-section="top-bar">
+        <span id="top_bar_text" data-editable="text">ENVÍOS NACIONALES E INTERNACIONALES A TODOS LOS PAÍSES | TEL: +34 633782189 →</span>
+    </div>
+
+    <header data-section="header">
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+
+            <a href="javascript:void(0)" class="logo" onclick="navigateTo('inicio')">
+                <img src="https://i.ibb.co/rKtSyKrX/Logo-de-tarot-elegante-con-Taroscopo-1.png" alt="Leo Logo" id="header_logo" data-editable="image">
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="navigateTo('inicio')" class="active-link">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle" onclick="toggleDropdown(event)">Servicios <i class="fas fa-chevron-down" style="font-size:0.7rem; margin-left:5px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="navigateTo('servicios')">Lecturas de Tarot</a></li>
+                        <li><a onclick="navigateTo('audios')">Meditaciones Guiadas</a></li>
+                        <li><a onclick="navigateTo('cursos')">Cursos en PDF</a></li>
+                    </ul>
+                </li>
+                <li><a onclick="navigateTo('quienes-somos')">Quiénes Somos</a></li>
+                <li><a onclick="navigateTo('contacto')">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <div class="currency-selector" id="currencySelector" title="Moneda local detectada">
+                    <img id="flagImg" src="https://flagcdn.com/w20/us.png" alt="Flag">
+                    <span id="currencyText">USD </span>
+                </div>
+                <a href="#"><i class="fas fa-search"></i></a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="view-inicio" class="view-section active" data-section="inicio">
+            <div class="inicio-hero">
+                <div class="inicio-photo">
+                    <img src="https://i.ibb.co/6JVZnRhQ/IMG-6662.jpg" alt="Leo" id="inicio_hero_img" data-editable="image">
+                </div>
+                <div class="inicio-content">
+                    <h1 id="inicio_hero_titulo" data-editable="title">Soy Leo</h1>
+                    <p id="inicio_hero_desc" data-editable="text">Soy Leo, tarotista y terapeuta holística dedicada a guiarte en tu camino de autodescubrimiento y sanación espiritual. A través del tarot terapéutico, numerología evolutiva y coaching estratégico, fusiono sabiduría ancestral y herramientas modernas para brindarte la claridad y orientación que necesitas para transformar tu vida.</p>
+                    <button class="btn btn-pulse" onclick="navigateTo('quienes-somos')" id="inicio_hero_btn" data-editable="link">Conoce mi historia</button>
+                </div>
+            </div>
+            
+            <div class="inicio-services container">
+                <h2 id="inicio_servicios_titulo" data-editable="title">Mis Servicios</h2>
+                <div class="service-grid">
+                    <article class="service-card">
+                        <h3 id="inicio_tarot_titulo" data-editable="title">Lecturas de Tarot</h3>
+                        <p id="inicio_tarot_desc" data-editable="text">Sesiones personalizadas de tarot terapéutico para guiarte en tu camino y tomar decisiones conscientes.</p>
+                        <button class="btn btn-outline" onclick="navigateTo('servicios')" id="inicio_tarot_btn" data-editable="link">Ver opciones</button>
+                    </article>
+                    <article class="service-card">
+                        <h3 id="inicio_meditaciones_titulo" data-editable="title">Meditaciones Guiadas</h3>
+                        <p id="inicio_meditaciones_desc" data-editable="text">Audios y afirmaciones poderosas diseñadas para ayudarte a reprogramar tu mente y sanar tu interior.</p>
+                        <button class="btn btn-outline" onclick="navigateTo('audios')" id="inicio_meditaciones_btn" data-editable="link">Ver opciones</button>
+                    </article>
+                    <article class="service-card">
+                        <h3 id="inicio_cursos_titulo" data-editable="title">Cursos en PDF</h3>
+                        <p id="inicio_cursos_desc" data-editable="text">Guías transformacionales y de autoconocimiento para sanar de raíz a tu propio ritmo.</p>
+                        <button class="btn btn-outline" onclick="navigateTo('cursos')" id="inicio_cursos_btn" data-editable="link">Ver opciones</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-servicios" class="view-section" data-section="servicios">
+            <div class="container section-header">
+                <h2 id="servicios_titulo_principal" data-editable="title">Lecturas de Tarot</h2>
+            </div>
+            
+            <div class="container product-grid">
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/NnQxBkKf/Lectura-de-tarot-claridad-instant-nea.png" class="product-image" id="servicios_flash_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Claridad Inmediata</div>
+                        <h3 class="product-title" id="servicios_flash_titulo" data-editable="title">Lectura Flash</h3>
+                        <p class="product-subtitle" id="servicios_flash_subtitulo" data-editable="text">Respuestas claras y directas sin rodeos</p>
+                        <p class="product-price dynamic-price" data-usd="19">$19.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">tarot</div>
+                        <div class="p-duration">8 a 10 minutos</div>
+                        <div class="p-desc" id="servicios_flash_desc" data-editable="text">Una experiencia diseñada para ir al grano. Obtén claridad inmediata sobre esa situación que te inquieta y llévate el impulso necesario para actuar hoy mismo.</div>
+                        <ul class="p-includes">
+                            <li>Respuesta a 3 preguntas concretas</li>
+                            <li>1 consejo final canalizado para ti</li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/q3v2c6G6/Conexi-n-energ-tica-en-lectura-tarot.png" class="product-image" id="servicios_esencial_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Guía Estratégica</div>
+                        <h3 class="product-title" id="servicios_esencial_titulo" data-editable="title">Lectura Esencial</h3>
+                        <p class="product-subtitle" id="servicios_esencial_subtitulo" data-editable="text">Desbloquea tu camino paso a paso</p>
+                        <p class="product-price dynamic-price" data-usd="35">$35.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">tarot</div>
+                        <div class="p-duration">13 a 15 minutos</div>
+                        <div class="p-desc" id="servicios_esencial_desc" data-editable="text">Profundiza en tus dudas principales con una sesión estructurada. Descubre qué energías te rodean y cómo utilizarlas a tu favor para superar tus bloqueos actuales.</div>
+                        <ul class="p-includes">
+                            <li>Análisis de 5 preguntas específicas</li>
+                            <li>5 consejos finales estratégicos</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/99rpq5Wm/Lectura-de-tarot-profunda-y-reveladora.png" class="product-image" id="servicios_profunda_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Conexión Profunda</div>
+                        <h3 class="product-title" id="servicios_profunda_titulo" data-editable="title">Lectura Profunda</h3>
+                        <p class="product-subtitle" id="servicios_profunda_subtitulo" data-editable="text">Análisis detallado de tu situación</p>
+                        <p class="product-price dynamic-price" data-usd="45">$45.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">tarot</div>
+                        <div class="p-duration">18 a 20 minutos</div>
+                        <div class="p-desc" id="servicios_profunda_desc" data-editable="text">Una sesión inmersiva donde no solo respondemos el "qué", sino el "por qué". Ideal para entender dinámicas complejas en el amor, el trabajo o tus relaciones.</div>
+                        <ul class="p-includes">
+                            <li>Exploración de 7 preguntas detalladas</li>
+                            <li>1 gran consejo final de empoderamiento</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/nNynZzNg/Lectura-energ-tica-del-mes-celestial.png" class="product-image" id="servicios_mensual_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Proyección Futura</div>
+                        <h3 class="product-title" id="servicios_mensual_titulo" data-editable="title">Energética del Mes</h3>
+                        <p class="product-subtitle" id="servicios_mensual_subtitulo" data-editable="text">Tu brújula para los próximos 30 días</p>
+                        <p class="product-price dynamic-price" data-usd="59">$59.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">tarot</div>
+                        <div class="p-duration">23 a 25 minutos</div>
+                        <div class="p-desc" id="servicios_mensual_desc" data-editable="text">Anticípate a los retos y bendiciones que trae el mes. Una radiografía completa de tu energía para que tomes el control de tu destino y actúes con ventaja.</div>
+                        <ul class="p-includes">
+                            <li>Mapeo completo con 9 preguntas clave</li>
+                            <li>1 consejo maestro mensual</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/kVsBgQtN/Lectura-11-11-y-portal-celestial.png" class="product-image" id="servicios_1111_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Transformación Total</div>
+                        <h3 class="product-title" id="servicios_1111_titulo" data-editable="title">Lectura 11:11</h3>
+                        <p class="product-subtitle" id="servicios_1111_subtitulo" data-editable="text">La experiencia más completa y reveladora</p>
+                        <p class="product-price dynamic-price" data-usd="73">$73.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">tarot</div>
+                        <div class="p-duration">30 a 35 minutos</div>
+                        <div class="p-desc" id="servicios_1111_desc" data-editable="text">El número maestro 11:11 simboliza despertares. Esta es mi sesión más VIP, diseñada para no dejar ni una sola piedra sin voltear. Saldrás con una visión cristalina de tu vida.</div>
+                        <ul class="p-includes">
+                            <li>Profundización extrema: 11 preguntas</li>
+                            <li>1 consejo final canalizado</li>
+                            <li>Soporte VIP: 3 preguntas adicionales post lectura</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="view-audios" class="view-section" data-section="audios">
+            <div class="container section-header" style="margin-bottom: 0;">
+                <h2 id="audios_titulo_principal" data-editable="title">Meditaciones Guiadas</h2>
+            </div>
+            
+            <div class="section-divider"><span>Genéricas (Pregrabadas)</span></div>
+            <div class="container product-grid">
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/RpmbFRgm/AMOR.webp" class="product-image" id="audios_amor_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Apertura Emocional</div>
+                        <h3 class="product-title" id="audios_amor_titulo" data-editable="title">Activación del Amor Compatible</h3>
+                        <p class="product-subtitle" id="audios_amor_subtitulo" data-editable="text">Ábrete a un amor sano y real</p>
+                        <p class="product-price dynamic-price" data-usd="21">$21.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">audio</div>
+                        <div class="p-duration">Pregrabado</div>
+                        <div class="p-desc" id="audios_amor_desc" data-editable="text">Una meditación guiada diseñada específicamente para sanar tu chakra corazón. Ideal para dejar atrás patrones tóxicos repetitivos y magnetizar una relación basada en el respeto y el amor consciente.</div>
+                        <ul class="p-includes">
+                            <li>Acceso inmediato al audio guiado</li>
+                            <li>Frecuencias binaurales de atracción</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/v6bRmVvv/CORTE.webp" class="product-image" id="audios_corte_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Desapego Emocional</div>
+                        <h3 class="product-title" id="audios_corte_titulo" data-editable="title">Liberación de Lazos</h3>
+                        <p class="product-subtitle" id="audios_corte_subtitulo" data-editable="text">Suelta vínculos del pasado</p>
+                        <p class="product-price dynamic-price" data-usd="21">$21.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">audio</div>
+                        <div class="p-duration">Pregrabado</div>
+                        <div class="p-desc" id="audios_corte_desc" data-editable="text">Cortar por lo sano a veces no es suficiente; la energía sigue atada. Esta meditación te guiará paso a paso para recuperar tu fragmento de alma y devolver lo que ya no te pertenece, devolviéndote la paz.</div>
+                        <ul class="p-includes">
+                            <li>Acceso inmediato al audio guiado</li>
+                            <li>Protocolo de corte energético mental</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/FqmvDh6h/RESET.webp" class="product-image" id="audios_reset_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Equilibrio Mental</div>
+                        <h3 class="product-title" id="audios_reset_titulo" data-editable="title">Reset Interior</h3>
+                        <p class="product-subtitle" id="audios_reset_subtitulo" data-editable="text">Reconecta contigo y calma tu mente</p>
+                        <p class="product-price dynamic-price" data-usd="21">$21.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">audio</div>
+                        <div class="p-duration">Pregrabado</div>
+                        <div class="p-desc" id="audios_reset_desc" data-editable="text">¿Sientes agotamiento, estrés o desconexión total? El Reset Interior es tu botón de reinicio. Un viaje sonoro para barrer la densidad acumulada y devolverte a tu centro luminoso.</div>
+                        <ul class="p-includes">
+                            <li>Acceso inmediato al audio guiado</li>
+                            <li>Técnicas de respiración anclada</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-divider"><span>Pack Especial</span></div>
+            <div class="container" style="display: flex; justify-content: center; margin-bottom: 60px;">
+                <article class="product-card" onclick="openProduct(this)" style="border: 2px solid var(--color-magenta); max-width: 350px; width: 100%;">
+                    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=400&h=300&q=80" class="product-image" style="aspect-ratio: 4/3;" id="audios_pack_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">OFERTA EXCLUSIVA</div>
+                        <h3 class="product-title" id="audios_pack_titulo" data-editable="title">Trilogía del Amor</h3>
+                        <p class="product-subtitle" id="audios_pack_subtitulo" data-editable="text">El paquete completo de transformación emocional</p>
+                        <p class="product-price dynamic-price" data-usd="49">$49.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">audio</div>
+                        <div class="p-duration">Pack de 3 Audios</div>
+                        <div class="p-desc" id="audios_pack_desc" data-editable="text">Llévate el arsenal completo para sanar, soltar y manifestar a un precio inmejorable. El paso definitivo para reconstruir tu vida amorosa desde los cimientos.</div>
+                        <ul class="p-includes">
+                            <li>Meditación: Activación Amor Compatible</li>
+                            <li>Meditación: Liberación de Lazos</li>
+                            <li>Meditación: Reset Interior</li>
+                            <li>Ahorro especial por paquete</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-divider"><span>Meditaciones Personalizadas</span></div>
+            <div class="container product-grid">
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/XZqFMHNm/Activacion-del-amor.png" class="product-image" id="audios_vip_amor_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">100% A Medida</div>
+                        <h3 class="product-title" id="audios_vip_amor_titulo" data-editable="title">Amor Compatible (VIP)</h3>
+                        <p class="product-subtitle" id="audios_vip_amor_subtitulo" data-editable="text">Canalizado exclusivamente con tu nombre</p>
+                        <p class="product-price dynamic-price" data-usd="59">$59.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">personalizada</div>
+                        <div class="p-duration">Grabación exclusiva</div>
+                        <div class="p-desc" id="audios_vip_amor_desc" data-editable="text">A diferencia de la versión genérica, me conectará directamente con tu campo energético. Pronunciaré tu nombre y trabajaré sobre tus bloqueos específicos de amor en el audio.</div>
+                        <ul class="p-includes">
+                            <li>Canalización de energía previa</li>
+                            <li>Audio MP3 grabado exclusivamente para ti</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/hxbQj3rH/Lliberaci-n-de-lazos.png" class="product-image" id="audios_vip_corte_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">100% A Medida</div>
+                        <h3 class="product-title" id="audios_vip_corte_titulo" data-editable="title">Corte de Lazos (VIP)</h3>
+                        <p class="product-subtitle" id="audios_vip_corte_subtitulo" data-editable="text">Rompe ataduras con esa persona en específico</p>
+                        <p class="product-price dynamic-price" data-usd="59">$59.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">personalizada</div>
+                        <div class="p-duration">Grabación exclusiva</div>
+                        <div class="p-desc" id="audios_vip_corte_desc" data-editable="text">Dirigiré la intención del corte hacia la persona o situación exacta que me indiques. Un exorcismo energético hecho a tu medida para liberarte definitivamente.</div>
+                        <ul class="p-includes">
+                            <li>Trabajo energético con los nombres implicados</li>
+                            <li>Audio MP3 grabado exclusivamente para ti</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://i.ibb.co/q3RXxyXN/Reset-emocional.png" class="product-image" id="audios_vip_reset_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">100% A Medida</div>
+                        <h3 class="product-title" id="audios_vip_reset_titulo" data-editable="title">Reset Emocional (VIP)</h3>
+                        <p class="product-subtitle" id="audios_vip_reset_subtitulo" data-editable="text">Sanación enfocada en tu herida actual</p>
+                        <p class="product-price dynamic-price" data-usd="59">$59.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">personalizada</div>
+                        <div class="p-duration">Grabación exclusiva</div>
+                        <div class="p-desc" id="audios_vip_reset_desc" data-editable="text">Me contarás qué te duele hoy, y yo diseñaré un viaje meditativo que impacte directamente en esa herida. Es como un botiquín de primeros auxilios para tu alma.</div>
+                        <ul class="p-includes">
+                            <li>Análisis breve de tu herida actual</li>
+                            <li>Audio MP3 de sanación único e irrepetible</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="view-cursos" class="view-section" data-section="cursos">
+            <div class="container section-header">
+                <h2 id="cursos_titulo_principal" data-editable="title">Cursos en PDF</h2>
+                <p style="color: var(--color-text-light); max-width: 600px; margin: 10px auto;" id="cursos_desc_principal" data-editable="text">Guías transformacionales para que trabajes en tu evolución a tu propio ritmo.</p>
+            </div>
+            
+            <div class="container product-grid">
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&h=550&q=80" class="product-image" id="cursos_patrones_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Liberación Kármica</div>
+                        <h3 class="product-title" id="cursos_patrones_titulo" data-editable="title">Rompe los 7 Patrones</h3>
+                        <p class="product-subtitle" id="cursos_patrones_subtitulo" data-editable="text">Deja de repetir la misma historia</p>
+                        <p class="product-price dynamic-price" data-usd="11">$11.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">pdf</div>
+                        <div class="p-duration">Lectura Continua</div>
+                        <div class="p-desc" id="cursos_patrones_desc" data-editable="text">¿Atraes siempre al mismo tipo de persona? Este e-book es un bisturí emocional diseñado para que identifiques el origen de tu sabotaje y lo arranques de raíz.</div>
+                        <ul class="p-includes">
+                            <li>Descarga inmediata del libro digital en PDF</li>
+                            <li>Test de diagnóstico emocional</li>
+                            <li>Aprox. 30 páginas de alto impacto</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?auto=format&fit=crop&w=400&h=550&q=80" class="product-image" id="cursos_nino_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Sanación Profunda</div>
+                        <h3 class="product-title" id="cursos_nino_titulo" data-editable="title">Sana tu Niño Interior</h3>
+                        <p class="product-subtitle" id="cursos_nino_subtitulo" data-editable="text">Abraza tus heridas y recupera tu luz</p>
+                        <p class="product-price dynamic-price" data-usd="11">$11.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">pdf</div>
+                        <div class="p-duration">Lectura Continua</div>
+                        <div class="p-desc" id="cursos_nino_desc" data-editable="text">Nuestras reacciones de adultos están controladas por un niño que no fue escuchado. Esta guía te enseña a maternar/paternar tus propias emociones para vivir sin miedo.</div>
+                        <ul class="p-includes">
+                            <li>Descarga inmediata del libro digital en PDF</li>
+                            <li>Ejercicios prácticos de perdón y escritura</li>
+                            <li>Aprox. 45 páginas de sanación activa</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="product-card" onclick="openProduct(this)">
+                    <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=400&h=550&q=80" class="product-image" id="cursos_fantasmas_img" data-editable="image">
+                    <div class="product-info">
+                        <div class="pre-title">Soltar el Pasado</div>
+                        <h3 class="product-title" id="cursos_fantasmas_titulo" data-editable="title">Libérate de los Fantasmas</h3>
+                        <p class="product-subtitle" id="cursos_fantasmas_subtitulo" data-editable="text">Suelta la carga y avanza libre</p>
+                        <p class="product-price dynamic-price" data-usd="11">$11.00 USD</p>
+                    </div>
+                    <div class="product-payload">
+                        <div class="p-type">pdf</div>
+                        <div class="p-duration">Lectura Continua</div>
+                        <div class="p-desc" id="cursos_fantasmas_desc" data-editable="text">El rencor, la culpa y los "y si..." son anclas pesadísimas. Este material te entrega las herramientas terapéuticas para vaciar tu mochila y caminar ligero hacia tu futuro.</div>
+                        <ul class="p-includes">
+                            <li>Descarga inmediata del libro digital en PDF</li>
+                            <li>Herramientas cognitivas de desapego radical</li>
+                            <li>Aprox. 40 páginas reveladoras</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="view-quienes-somos" class="view-section" data-section="quienes-somos">
+            <div class="container section-header">
+                <h2 id="quienes_titulo_principal" data-editable="title">Conóceme Más</h2>
+            </div>
+            
+            <div class="container about-expanded">
+                <div class="about-item">
+                    <div class="about-image-wrapper vertical">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=450&h=600&q=80" alt="Leo Taroscopo" id="quienes_sobremi_img" data-editable="image">
+                    </div>
+                    <div class="about-content">
+                        <span class="about-tag">Sobre Mí</span>
+                        <h3 id="quienes_sobremi_titulo" data-editable="title">Descubriendo el Camino</h3>
+                        <p id="quienes_sobremi_p1" data-editable="text">Soy Leo, el creador de Taroscopo. Mi pasión por el mundo de lo intangible y la intuición no surgió de la nada, sino de un camino de autodescubrimiento y sanación personal. Desde muy joven sentí la curiosidad de entender el comportamiento humano y cómo las energías influyen en nuestro destino.</p>
+                        <p id="quienes_sobremi_p2" data-editable="text">Taroscopo nació como un espacio para compartir este conocimiento y ofrecerte una guía honesta y directa, utilizando el Tarot como un espejo de tu alma y una brújula para tu destino.</p>
+                    </div>
+                </div>
+
+                <div class="about-item reverse">
+                    <div class="about-image-wrapper horizontal">
+                        <img src="https://images.unsplash.com/photo-1447069387593-a5de0862481e?auto=format&fit=crop&w=1600&h=900&q=80" alt="Valores de Taroscopo" id="quienes_valores_img" data-editable="image">
+                    </div>
+                    <div class="about-content">
+                        <span class="about-tag">Mis Valores</span>
+                        <h3 id="quienes_valores_titulo" data-editable="title">La Base de Mi Trabajo</h3>
+                        <p id="quienes_valores_p1" data-editable="text">En Taroscopo, mi trabajo se cimienta en pilares fundamentales que garantizan la integridad de cada consulta. La honestidad es innegociable; te diré lo que las cartas muestran, no lo que quieres escuchar, pero siempre con empatía y tacto, entendiendo que cada situación es delicada.</p>
+                        <p id="quienes_valores_p2" data-editable="text">Mi compromiso es ofrecerte un espacio seguro y de absoluta confidencialidad. Mi objetivo no es predecir un futuro fijo, sino empoderarte en tu presente.</p>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <div class="about-image-wrapper horizontal">
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1600&h=900&q=80" alt="Herramientas" id="quienes_herramientas_img" data-editable="image">
+                    </div>
+                    <div class="about-content">
+                        <span class="about-tag">Mis Herramientas</span>
+                        <h3 id="quienes_herramientas_titulo" data-editable="title">Más que Solo Cartas</h3>
+                        <p id="quienes_herramientas_p1" data-editable="text">No utilizo el Tarot simplemente como una herramienta adivinatoria, sino como un mapa simbólico de la experiencia humana. Me especializo en el Tarot Terapéutico y Evolutivo.</p>
+                        <p id="quienes_herramientas_p2" data-editable="text">Complemento mis lecturas con conocimientos de Numerología para entender los ciclos de tu vida, y Astrología para ver cómo los astros influyen en tu camino.</p>
+                        <div class="tools-icons">
+                            <div><i class="fas fa-magic"></i><span>Tarot</span></div>
+                            <div><i class="fas fa-star"></i><span>Astro</span></div>
+                            <div><i class="fas fa-chart-line"></i><span>Número</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-item reverse">
+                    <div class="about-image-wrapper horizontal">
+                        <img src="https://images.unsplash.com/photo-1508214751196-bfdd4ca4ccaa?auto=format&fit=crop&w=1600&h=900&q=80" alt="Visión Taroscopo" id="quienes_vision_img" data-editable="image">
+                    </div>
+                    <div class="about-content">
+                        <span class="about-tag">Visión</span>
+                        <h3 id="quienes_vision_titulo" data-editable="title">Mi Propósito Contigo</h3>
+                        <p id="quienes_vision_p1" data-editable="text">Mi misión es ayudarte a encontrar claridad en momentos de duda, guiándote hacia el autodescubrimiento y el empoderamiento personal. Quiero que salgas de mis sesiones sintiendo que tienes las herramientas para enfrentar tus desafíos.</p>
+                        <p id="quienes_vision_p2" data-editable="text">Mi filosofía es simple: el futuro no está escrito en piedra, sino que lo co-creamos con nuestras decisiones. Yo te muestro el mapa, tú decides el destino.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-contacto" class="view-section" data-section="contacto">
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1920&h=400&q=80" alt="Contacto Hero" class="contact-hero" id="contacto_hero_img" data-editable="image">
+            
+            <div class="contact-form-container">
+                <h1 id="contacto_titulo" data-editable="title">Contacto</h1>
+                <p style="color: var(--color-text-light); margin-bottom: 30px;" id="contacto_subtitulo" data-editable="text">Si tienes alguna pregunta o duda, no dudes en escribirme.</p>
+                <form id="contactForm" onsubmit="event.preventDefault(); alert('Mensaje enviado. Te contactaremos pronto.'); e.target.reset();">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Correo electrónico *" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Comentario" required></textarea>
+                    </div>
+                    <div style="text-align: left;">
+                        <button type="submit" class="btn" id="contacto_btn_enviar" data-editable="link">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="view-producto" class="view-section" data-section="producto">
+            <div class="container product-detail-container">
+                <div class="product-detail-image">
+                    <img id="detailImage" src="" alt="Producto">
+                </div>
+                <div class="product-detail-info">
+                    <span class="tag" id="detailPreTitle" style="color: var(--color-magenta); font-weight: bold; letter-spacing: 1px; font-size: 0.75rem;"></span>
+                    <h1 id="detailTitle"></h1>
+                    <p class="product-subtitle" id="detailSubtitle" style="font-size: 1.1rem; margin-bottom: 20px; font-style: italic; color: var(--color-text-light);"></p>
+                    
+                    <div class="price-large dynamic-price" id="detailPrice" data-usd="0"></div>
+                    <div class="tax-note" style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 30px;">Impuestos incluidos.</div>
+                    
+                    <button class="btn btn-magenta btn-pulse" id="btnOpenFlow" style="width: 100%; font-size: 1.1rem;" data-editable="link">Reservar ahora</button>
+                    
+                    <div id="detailDesc" style="margin-top: 30px; line-height: 1.8; color: var(--color-text-light); font-size: 1rem;"></div>
+                    
+                    <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--color-border);">
+                        <strong style="color: var(--color-primary); font-size: 1.1rem;"><i class="fas fa-check-circle" style="color: var(--color-magenta); margin-right: 5px;"></i> ¿Qué incluye tu compra?</strong>
+                        <ul class="deliverables-list" id="detailIncludes"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="margin-top: 40px; border-top: 1px solid var(--color-border); padding-top: 60px; padding-bottom: 60px;">
+                <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 40px; text-align: center;" id="producto_recomendados_titulo" data-editable="title">Recomendados</h2>
+                <div class="product-grid">
+                    <article class="product-card" onclick="openProduct(this)">
+                        <img src="https://images.unsplash.com/photo-1610471926677-7815cfb4dd25?auto=format&fit=crop&w=400&h=550&q=80" class="product-image" id="producto_recom_flash_img" data-editable="image">
+                        <div class="product-info">
+                            <div class="pre-title">Claridad Inmediata</div>
+                            <h3 class="product-title" id="producto_recom_flash_titulo" data-editable="title">Lectura Flash</h3>
+                            <p class="product-subtitle" id="producto_recom_flash_subtitulo" data-editable="text">Respuestas directas sin rodeos</p>
+                            <p class="product-price dynamic-price" data-usd="19">$19.00 USD</p>
+                        </div>
+                        <div class="product-payload">
+                            <div class="p-type">tarot</div><div class="p-duration">8 a 10 minutos</div>
+                            <div class="p-desc">Obtén claridad inmediata sobre esa situación que te inquieta.</div>
+                            <ul class="p-includes"><li>3 preguntas</li><li>1 consejo final</li></ul>
+                        </div>
+                    </article>
+                    <article class="product-card" onclick="openProduct(this)">
+                        <img src="https://i.ibb.co/FqmvDh6h/RESET.webp" class="product-image" id="producto_recom_reset_img" data-editable="image">
+                        <div class="product-info">
+                            <div class="pre-title">Equilibrio Mental</div>
+                            <h3 class="product-title" id="producto_recom_reset_titulo" data-editable="title">Reset Interior</h3>
+                            <p class="product-subtitle" id="producto_recom_reset_subtitulo" data-editable="text">Reconecta y calma tu mente</p>
+                            <p class="product-price dynamic-price" data-usd="21">$21.00 USD</p>
+                        </div>
+                        <div class="product-payload">
+                            <div class="p-type">audio</div><div class="p-duration">Pregrabado</div>
+                            <div class="p-desc">El Reset Interior es tu botón de reinicio para barrer la densidad.</div>
+                            <ul class="p-includes"><li>Acceso al audio</li><li>Técnicas de respiración</li></ul>
+                        </div>
+                    </article>
+                    <article class="product-card" onclick="openProduct(this)">
+                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&h=550&q=80" class="product-image" id="producto_recom_patrones_img" data-editable="image">
+                        <div class="product-info">
+                            <div class="pre-title">Liberación Kármica</div>
+                            <h3 class="product-title" id="producto_recom_patrones_titulo" data-editable="title">Rompe los Patrones</h3>
+                            <p class="product-subtitle" id="producto_recom_patrones_subtitulo" data-editable="text">Deja de repetir la historia</p>
+                            <p class="product-price dynamic-price" data-usd="11">$11.00 USD</p>
+                        </div>
+                        <div class="product-payload">
+                            <div class="p-type">pdf</div><div class="p-duration">Lectura</div>
+                            <div class="p-desc">E-book diseñado para que identifiques el origen de tu sabotaje.</div>
+                            <ul class="p-includes"><li>Libro digital PDF</li><li>Test de diagnóstico</li></ul>
+                        </div>
+                    </article>
+                    <article class="product-card" onclick="openProduct(this)">
+                        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=550&q=80" class="product-image" id="producto_recom_esencial_img" data-editable="image">
+                        <div class="product-info">
+                            <div class="pre-title">Guía Estratégica</div>
+                            <h3 class="product-title" id="producto_recom_esencial_titulo" data-editable="title">Lectura Esencial</h3>
+                            <p class="product-subtitle" id="producto_recom_esencial_subtitulo" data-editable="text">Desbloquea tu camino</p>
+                            <p class="product-price dynamic-price" data-usd="35">$35.00 USD</p>
+                        </div>
+                        <div class="product-payload">
+                            <div class="p-type">tarot</div><div class="p-duration">13 a 15 minutos</div>
+                            <div class="p-desc">Profundiza en tus dudas con una sesión estructurada.</div>
+                            <ul class="p-includes"><li>5 preguntas</li><li>5 consejos</li></ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-privacidad" class="view-section" data-section="privacidad">
+            <div class="container legal-container">
+                <h1 id="privacidad_titulo" data-editable="title">Política de Privacidad</h1>
+                <p id="privacidad_p1" data-editable="text">En nuestro espacio, valoramos y respetamos enormemente su privacidad. Esta política describe cómo recopilamos, usamos y protegemos su información personal al utilizar nuestros servicios.</p>
+                <p id="privacidad_p2" data-editable="text">Toda la información proporcionada (nombres, correos electrónicos, números de teléfono y detalles compartidos durante las sesiones) es estrictamente confidencial. Utilizamos esta información únicamente para procesar sus reservas, comunicarnos con usted respecto a sus sesiones y enviarle el material adquirido.</p>
+                <p id="privacidad_p3" data-editable="text">No compartimos, vendemos ni alquilamos su información personal a terceros bajo ninguna circunstancia.</p>
+            </div>
+        </section>
+
+        <section id="view-terminos" class="view-section" data-section="terminos">
+            <div class="container legal-container">
+                <h1 id="terminos_titulo" data-editable="title">Términos del Servicio</h1>
+                <p id="terminos_intro" data-editable="text">Al adquirir cualquier servicio, lectura o material digital en esta plataforma, usted acepta los términos y condiciones establecidos en este documento.</p>
+                <ul>
+                    <li>Las lecturas de tarot y servicios energéticos son herramientas de orientación espiritual y de autoconocimiento.</li>
+                    <li>Nuestros servicios <strong>no sustituyen en ningún caso</strong> el consejo médico, legal, financiero o psicológico profesional.</li>
+                    <li>Debe ser mayor de 18 años para adquirir nuestros servicios.</li>
+                    <li>Nos reservamos el derecho de rechazar el servicio a cualquier persona si consideramos que la solicitud va en contra de nuestros principios éticos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="view-contacto-legal" class="view-section" data-section="contacto-legal">
+            <div class="container legal-container">
+                <h1 id="contacto_legal_titulo" data-editable="title">Información de Contacto</h1>
+                <p id="contacto_legal_desc1" data-editable="text">Para consultas generales, soporte técnico, o preguntas específicas sobre sus reservas y descargas, puede comunicarse directamente con nosotros a través de los siguientes canales oficiales:</p>
+                <ul>
+                    <li><strong>WhatsApp Directo:</strong> +34 633 782 189</li>
+                    <li><strong>Horario de atención:</strong> Lunes a Viernes, de 10:00 AM a 18:00 PM (Hora local)</li>
+                </ul>
+                <p id="contacto_legal_desc2" data-editable="text">Procuramos responder a todas las solicitudes en un plazo no mayor a 24-48 horas hábiles.</p>
+            </div>
+        </section>
+
+        <section id="view-reembolso" class="view-section" data-section="reembolso">
+            <div class="container legal-container">
+                <h1 id="reembolso_titulo" data-editable="title">Política de Reembolso</h1>
+                <p id="reembolso_desc1" data-editable="text">Debido a la naturaleza digital, intangible y personalizada de nuestros servicios, establecemos las siguientes políticas de reembolso:</p>
+                <ul>
+                    <li><strong>Productos Digitales (Audios y PDFs):</strong> No se ofrecen reembolsos una vez que el acceso o el archivo ha sido entregado/descargado.</li>
+                    <li><strong>Lecturas de Tarot y Sesiones Personalizadas:</strong> Una vez que la sesión ha sido realizada o el audio personalizado ha sido entregado, no hay devoluciones bajo ninguna circunstancia, ya que el tiempo y la energía han sido invertidos.</li>
+                    <li><strong>Cancelaciones:</strong> Si necesita cancelar o reprogramar una cita en vivo, debe hacerlo con al menos 24 horas de antelación para reagendar sin costo.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="modal-overlay" id="calendarModalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('calendarModalOverlay')"><i class="fas fa-times"></i></button>
+            <div class="modal-body-split">
+                <div class="modal-sidebar">
+                    <img id="calSidebarImg" src="" alt="Thumb">
+                    <h3 id="calSidebarTitle">Lectura</h3>
+                    <p id="calSidebarDesc">Selecciona un día disponible en el calendario.</p>
+                    <p id="calSidebarDuration" style="margin-top: 15px; font-weight:bold; color: var(--color-primary);"></p>
+                </div>
+                
+                <div class="modal-main">
+                    <div class="calendar-header">
+                        <button id="prevMonth" type="button"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="monthYearDisplay">Mes y Año</h3>
+                        <button id="nextMonth" type="button"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="day-name">LU</div><div class="day-name">MA</div><div class="day-name">MI</div>
+                        <div class="day-name">JU</div><div class="day-name">VI</div><div class="day-name">SÁ</div><div class="day-name">DO</div>
+                    </div>
+                    
+                    <div class="calendar-grid" id="calendarDays">
+                        </div>
+                    
+                    <button id="btnContinuarReserva" class="btn-magenta btn-disabled" style="margin-top: 30px;" disabled onclick="openBookingFormModal()">Continuar al Registro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="formModalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('formModalOverlay')"><i class="fas fa-times"></i></button>
+            <div class="modal-body-split">
+                <div class="modal-sidebar">
+                    <button class="btn-outline" style="border:none; color: var(--color-text-light); font-size: 0.85rem; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; padding: 5px 10px;" onclick="backToCalendar()">
+                        <i class="fas fa-chevron-left"></i> Volver a fechas
+                    </button>
+                    <img id="formSidebarImg" src="" alt="Thumb">
+                    <h3 id="formSidebarTitle">Lectura</h3>
+                    <p id="selectedDateDisplay" style="font-weight: bold; margin-bottom: 10px; color: var(--color-magenta); font-size: 1.1rem;"></p>
+                    <p style="font-size: 0.9rem; color: var(--color-text-light);"><i class="fas fa-user" style="margin-right: 5px;"></i> Quién: Leo</p>
+                </div>
+                
+                <div class="modal-main">
+                    <h2 style="font-family: var(--font-heading); margin-bottom: 20px; font-size: 2rem;">Completar reserva</h2>
+                    
+                    <div class="alert-info">
+                        <i class="fas fa-info-circle" style="font-size: 1.2rem; position: relative; top: 2px;"></i> 
+                        <span>La reserva solo se confirmará <strong>después de pagar</strong>. Al confirmar, serás redirigido a PayPal.</span>
+                    </div>
+                    
+                    <form id="bookingForm" onsubmit="handleBookingConfirm(event)">
+                        <div class="form-group">
+                            <label style="font-size: 0.9rem; font-weight: bold; margin-bottom: 8px; display: block; color: var(--color-primary);">Nombre *</label>
+                            <input type="text" class="form-control" id="bookingName" placeholder="Introduce tu nombre completo" required pattern="^[a-zA-Z\s\u00C0-\u00FF]+$" title="Por favor, introduce solo letras.">
+                        </div>
+                        <div class="form-group">
+                            <label style="font-size: 0.9rem; font-weight: bold; margin-bottom: 8px; display: block; color: var(--color-primary);">Correo electrónico *</label>
+                            <input type="email" class="form-control" id="bookingEmail" placeholder="tu@correo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-size: 0.9rem; font-weight: bold; margin-bottom: 8px; display: block; color: var(--color-primary);">Confirmar correo electrónico *</label>
+                            <input type="email" class="form-control" id="bookingEmailConfirm" placeholder="Confirma tu correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label style="font-size: 0.9rem; font-weight: bold; margin-bottom: 8px; display: block; color: var(--color-primary);">Teléfono (WhatsApp) *</label>
+                            <input type="tel" class="form-control" id="bookingPhone" placeholder="+34 600 000 000" required pattern="^[\+\d\s\-]+$" maxlength="20" title="Introduce un número válido con código de país.">
+                        </div>
+                        
+                        <button type="submit" id="btnConfirmarReserva" class="btn-magenta btn-pulse" style="margin-top: 20px; font-size: 1.1rem;">Confirmar reserva y Pagar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <span>Tu carrito (<span id="cartHeaderCount">0</span>)</span>
+            <button style="background:none; border:none; font-size:1.5rem; cursor:pointer; color: var(--color-text);" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <p style="text-align: center; margin-top: 50px; color: var(--color-text-light);">Tu carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; font-size: 1.2rem;">
+                <span>Subtotal</span>
+                <span id="cartSubtotal" class="dynamic-price" data-usd="0" style="color: var(--color-primary);">$0.00 USD</span>
+            </div>
+            <a href="https://paypal.me/tuusuario" id="btnPagarPedido" target="_blank" class="btn btn-magenta btn-pulse" style="width: 100%; display: block; font-size: 1.1rem;" onclick="toggleCart()">Ir a Pagar</a>
+            <button class="btn-outline" style="width: 100%; padding: 15px; margin-top: 15px; border-radius: 6px; border: none; text-decoration: underline; font-size: 1rem; cursor: pointer;" onclick="toggleCart()">Seguir comprando</button>
+        </div>
+    </div>
+
+    <footer data-section="footer" style="background-color: #1a1b26; color: white; padding: 80px 20px 30px; text-align: center; margin-top: 50px;">
+        <div class="container">
+            <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 15px; font-weight: normal; letter-spacing: 1px;" id="footer_titulo" data-editable="title">RESERVA YA MISMO</h2>
+            <p style="color: #aaa; margin-bottom: 40px; font-size: 0.9rem;" id="footer_desc" data-editable="text">Accede a rituales exclusivos, promociones especiales y tips mágicos</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 60px;">
+                <button class="btn btn-magenta btn-pulse" style="border-radius: 30px; padding: 12px 30px; display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; max-width: 250px; margin: 0; flex: 0 0 auto;" onclick="navigateTo('servicios')" id="footer_btn_reserva" data-editable="link">
+                    <i class="fas fa-heart"></i> Reserva ahora
+                </button>
+                <div class="footer-social" style="margin-bottom: 0; display: flex; gap: 15px; font-size: 1.3rem;">
+                    <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='#c2185b'" onmouseout="this.style.color='white'"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='#c2185b'" onmouseout="this.style.color='white'"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='#c2185b'" onmouseout="this.style.color='white'"><i class="fab fa-youtube"></i></a>
+                    <a href="#" style="color: white; transition: color 0.3s;" onmouseover="this.style.color='#c2185b'" onmouseout="this.style.color='white'"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #333; padding-top: 30px; display: flex; flex-direction: column; gap: 20px; align-items: center; font-size: 0.8rem; color: #888;">
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                    <a onclick="navigateTo('privacidad')" style="cursor: pointer; color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Política de privacidad</a>
+                    <a onclick="navigateTo('terminos')" style="cursor: pointer; color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Términos del servicio</a>
+                    <a onclick="navigateTo('contacto-legal')" style="cursor: pointer; color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Información de contacto</a>
+                    <a onclick="navigateTo('reembolso')" style="cursor: pointer; color: #888; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Política de reembolso</a>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <p style="margin: 0; text-align: center; flex: 1;">&copy; 2026, Leo store. Todos los derechos reservados.</p>
+                    <div class="payment-icons" style="flex: 1; text-align: center; display: flex; justify-content: center; gap: 5px;">
+                        <img src="https://via.placeholder.com/40x25/fff/000?text=Visa" alt="Visa" style="border-radius: 4px;">
+                        <img src="https://via.placeholder.com/40x25/fff/000?text=MC" alt="Mastercard" style="border-radius: 4px;">
+                        <img src="https://via.placeholder.com/40x25/fff/000?text=Amex" alt="Amex" style="border-radius: 4px;">
+                        <img src="https://via.placeholder.com/40x25/fff/000?text=Pay" alt="PayPal" style="border-radius: 4px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/0000000000" class="whatsapp-float btn-pulse" target="_blank" rel="noopener noreferrer" id="global_whatsapp_float" data-editable="link">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+<script>
+  window.addEventListener('message', function(event) {
+    const data = event.data;
+    if (data && data.type === 'palacio-update' && data.id) {
+      const element = document.getElementById(data.id);
+      if (!element) return;
+      if (data.fieldType === 'title' || data.fieldType === 'text') {
+        element.textContent = data.value;
+      } else if (data.fieldType === 'image' && element.tagName === 'IMG') {
+        element.src = data.value;
+      } else if (data.fieldType === 'link' && element.tagName === 'A') {
+        element.href = data.value;
+      }
+      element.classList.add('opacity-40');
+      setTimeout(() => element.classList.remove('opacity-40'), 400);
+    }
+    if (data && data.type === 'palacio-inventory') {
+      const editables = document.querySelectorAll('[data-editable]');
+      const inventory = Array.from(editables).map(el => ({
+        id: el.id,
+        editable: el.getAttribute('data-editable'),
+        section: el.closest('[data-section]')?.getAttribute('data-section') || 'general',
+        tag: el.tagName.toLowerCase(),
+        text: el.textContent?.trim() || ''
+      }));
+      event.source.postMessage({ type: 'palacio-inventory-response', inventory }, '*');
+    }
+  });
+  window.parent.postMessage({ type: 'palacio-ready' }, '*');
+</script>
+</body>
+</html>
