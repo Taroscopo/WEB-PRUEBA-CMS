@@ -13,11 +13,11 @@
 </head>
 <body style="display: flex; flex-direction: column;">
 
-    <div class="top-bar" data-section="top-bar">
+    <div class="top-bar" data-section="top-bar" style="order: 0;" data-section-order="0">
         <span id="top_bar_text" data-editable="text">ENVÍOS NACIONALES E INTERNACIONALES A TODOS LOS PAÍSES | TEL: +34 633782189 →</span>
     </div>
 
-    <header data-section="header">
+    <header data-section="header" style="order: 1;" data-section-order="1">
         <div class="nav-container">
             <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
 
@@ -54,13 +54,13 @@
     </header>
 
     <main>
-        <section id="view-inicio" class="view-section active" data-section="inicio">
+        <section id="view-inicio" class="view-section active" data-section="inicio" style="order: 2;" data-section-order="2">
             <div class="inicio-hero">
                 <div class="inicio-photo">
                     <img src="https://i.ibb.co/6JVZnRhQ/IMG-6662.jpg" alt="Leo" id="inicio_hero_img" data-editable="image">
                 </div>
                 <div class="inicio-content">
-                    <h1 id="inicio_hero_titulo" data-editable="title">Soy Leo - Premium Edit</h1>
+                    <h1 id="inicio_hero_titulo" data-editable="title">Soy Leonidas - Premium Edit</h1>
                     <p id="inicio_hero_desc" data-editable="text">Soy Leo, tarotista y terapeuta holística dedicada a guiarte en tu camino de autodescubrimiento y sanación espiritual. A través del tarot terapéutico, numerología evolutiva y coaching estratégico, fusiono sabiduría ancestral y herramientas modernas para brindarte la claridad y orientación que necesitas para transformar tu vida.</p>
                     <button class="btn btn-pulse" onclick="navigateTo('quienes-somos')" id="inicio_hero_btn" data-editable="link">Conoce mi historia</button>
                 </div>
@@ -88,7 +88,7 @@
             </div>
         </section>
 
-        <section id="view-servicios" class="view-section" data-section="servicios">
+        <section id="view-servicios" class="view-section" data-section="servicios" style="order: 3;" data-section-order="3">
             <div class="container section-header">
                 <h2 id="servicios_titulo_principal" data-editable="title">Lecturas de Tarot</h2>
             </div>
@@ -192,7 +192,7 @@
             </div>
         </section>
 
-        <section id="view-audios" class="view-section" data-section="audios">
+        <section id="view-audios" class="view-section" data-section="audios" style="order: 4;" data-section-order="4">
             <div class="container section-header" style="margin-bottom: 0;">
                 <h2 id="audios_titulo_principal" data-editable="title">Meditaciones Guiadas</h2>
             </div>
@@ -338,7 +338,7 @@
             </div>
         </section>
 
-        <section id="view-cursos" class="view-section" data-section="cursos">
+        <section id="view-cursos" class="view-section" data-section="cursos" style="order: 5;" data-section-order="5">
             <div class="container section-header">
                 <h2 id="cursos_titulo_principal" data-editable="title">Cursos en PDF</h2>
                 <p style="color: var(--color-text-light); max-width: 600px; margin: 10px auto;" id="cursos_desc_principal" data-editable="text">Guías transformacionales para que trabajes en tu evolución a tu propio ritmo.</p>
@@ -405,7 +405,7 @@
             </div>
         </section>
 
-        <section id="view-quienes-somos" class="view-section" data-section="quienes-somos">
+        <section id="view-quienes-somos" class="view-section" data-section="quienes-somos" style="order: 6;" data-section-order="6">
             <div class="container section-header">
                 <h2 id="quienes_titulo_principal" data-editable="title">Conóceme Más</h2>
             </div>
@@ -466,7 +466,7 @@
             </div>
         </section>
 
-        <section id="view-contacto" class="view-section" data-section="contacto">
+        <section id="view-contacto" class="view-section" data-section="contacto" style="order: 7;" data-section-order="7">
             <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&amp;fit=crop&amp;w=1920&amp;h=400&amp;q=80" alt="Contacto Hero" class="contact-hero" id="contacto_hero_img" data-editable="image">
             
             <div class="contact-form-container">
@@ -494,7 +494,7 @@
             </div>
         </section>
 
-        <section id="view-producto" class="view-section" data-section="producto">
+        <section id="view-producto" class="view-section" data-section="producto" style="order: 8;" data-section-order="8">
             <div class="container product-detail-container">
                 <div class="product-detail-image">
                     <img id="detailImage" src="" alt="Producto">
@@ -581,7 +581,7 @@
             </div>
         </section>
 
-        <section id="view-privacidad" class="view-section" data-section="privacidad">
+        <section id="view-privacidad" class="view-section" data-section="privacidad" style="order: 9;" data-section-order="9">
             <div class="container legal-container">
                 <h1 id="privacidad_titulo" data-editable="title">Política de Privacidad</h1>
                 <p id="privacidad_p1" data-editable="text">En nuestro espacio, valoramos y respetamos enormemente su privacidad. Esta política describe cómo recopilamos, usamos y protegemos su información personal al utilizar nuestros servicios.</p>
@@ -590,7 +590,7 @@
             </div>
         </section>
 
-        <section id="view-terminos" class="view-section" data-section="terminos">
+        <section id="view-terminos" class="view-section" data-section="terminos" style="order: 10;" data-section-order="10">
             <div class="container legal-container">
                 <h1 id="terminos_titulo" data-editable="title">Términos del Servicio</h1>
                 <p id="terminos_intro" data-editable="text">Al adquirir cualquier servicio, lectura o material digital en esta plataforma, usted acepta los términos y condiciones establecidos en este documento.</p>
@@ -603,7 +603,7 @@
             </div>
         </section>
 
-        <section id="view-contacto-legal" class="view-section" data-section="contacto-legal">
+        <section id="view-contacto-legal" class="view-section" data-section="contacto-legal" style="order: 11;" data-section-order="11">
             <div class="container legal-container">
                 <h1 id="contacto_legal_titulo" data-editable="title">Información de Contacto</h1>
                 <p id="contacto_legal_desc1" data-editable="text">Para consultas generales, soporte técnico, o preguntas específicas sobre sus reservas y descargas, puede comunicarse directamente con nosotros a través de los siguientes canales oficiales:</p>
@@ -615,7 +615,7 @@
             </div>
         </section>
 
-        <section id="view-reembolso" class="view-section" data-section="reembolso">
+        <section id="view-reembolso" class="view-section" data-section="reembolso" style="order: 12;" data-section-order="12">
             <div class="container legal-container">
                 <h1 id="reembolso_titulo" data-editable="title">Política de Reembolso</h1>
                 <p id="reembolso_desc1" data-editable="text">Debido a la naturaleza digital, intangible y personalizada de nuestros servicios, establecemos las siguientes políticas de reembolso:</p>
@@ -726,7 +726,7 @@
         </div>
     </div>
 
-    <footer data-section="footer" style="background-color: #1a1b26; color: white; padding: 80px 20px 30px; text-align: center; margin-top: 50px;">
+    <footer data-section="footer" style="background-color: #1a1b26; color: white; padding: 80px 20px 30px; text-align: center; margin-top: 50px; order: 13;" data-section-order="13">
         <div class="container">
             <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 15px; font-weight: normal; letter-spacing: 1px;" id="footer_titulo" data-editable="title">RESERVA YA MISMO</h2>
             <p style="color: #aaa; margin-bottom: 40px; font-size: 0.9rem;" id="footer_desc" data-editable="text">Accede a rituales exclusivos, promociones especiales y tips mágicos</p>
